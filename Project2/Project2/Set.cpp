@@ -76,6 +76,9 @@ int Set::size() const
 /* Insert value into the set if it is not already present. */
 bool Set::insert(const ItemType& value)
 {
+    if (size() >= DEFAULT_MAX_ITEMS)
+        return false; // too big
+    
     /* When the loop finishes, ptr will point to the node that should follow the new node. */
     Node *ptr = head->next;
     while (ptr != head)
