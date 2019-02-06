@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D9A6116C21FCD292005D9142 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9A6116B21FCD292005D9142 /* main.cpp */; };
 		D9A6117421FCD329005D9142 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9A6117221FCD329005D9142 /* Set.cpp */; };
+		D9F106C022093A03005BF639 /* newSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9F106BE22093A03005BF639 /* newSet.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		D9A6116B21FCD292005D9142 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D9A6117221FCD329005D9142 /* Set.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
 		D9A6117321FCD329005D9142 /* Set.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		D9F106BE22093A03005BF639 /* newSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = newSet.cpp; sourceTree = "<group>"; };
+		D9F106BF22093A03005BF639 /* newSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = newSet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				D9A6116B21FCD292005D9142 /* main.cpp */,
+				D9F106BE22093A03005BF639 /* newSet.cpp */,
+				D9F106BF22093A03005BF639 /* newSet.h */,
 				D9A6117221FCD329005D9142 /* Set.cpp */,
 				D9A6117321FCD329005D9142 /* Set.h */,
 			);
@@ -124,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A6117421FCD329005D9142 /* Set.cpp in Sources */,
+				D9F106C022093A03005BF639 /* newSet.cpp in Sources */,
 				D9A6116C21FCD292005D9142 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

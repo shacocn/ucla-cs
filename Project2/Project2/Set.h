@@ -4,7 +4,7 @@
 #include <string>
 
 /* Type alias. */
-using ItemType = std::string;
+using ItemType = int;
 
 /* Global constants. */
 const int DEFAULT_MAX_ITEMS = 250;
