@@ -61,3 +61,27 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
     }
     return false; // no solution
 }
+<<<<<<< HEAD
+=======
+
+int main()
+{
+    string maze[10] = {
+        "XXXXXXXXXX",
+        "X....X...X",
+        "X.XX.XX..X",
+        "XXX....X.X",
+        "X.XXX.XXXX",
+        "X.X...X..X",
+        "X...X.X..X",
+        "XXXXX.X.XX",
+        "X........X",
+        "XXXXXXXXXX"
+    };
+    
+    if (pathExists(maze, 10,10, 3,5, 8,8))
+        cout << "Solvable!" << endl;
+    else
+        cout << "Out of luck!" << endl;
+}
+>>>>>>> 67026a26f72ef0d9cfb36b426e29019e52ff9b86
