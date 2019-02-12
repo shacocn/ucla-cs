@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Set::dump():Set.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_items">
+            </PersistentString>
+            <PersistentString
+               value = "m_arr[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Set::shiftRight(int):Set.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_arr[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Set::swap(Set&amp;):newSet.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "other.m_items">
+            </PersistentString>
+            <PersistentString
+               value = "this.m_items">
+            </PersistentString>
+            <PersistentString
+               value = "this.m_maxItems">
+            </PersistentString>
+            <PersistentString
+               value = "other.m_maxItems">
+            </PersistentString>
+            <PersistentString
+               value = "temp.m_maxItems">
+            </PersistentString>
+            <PersistentString
+               value = "temp.m_items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
