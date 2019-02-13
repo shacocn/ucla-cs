@@ -94,6 +94,8 @@ void print(double arr[], int n)
 
 int main()
 {
+    double empty[0];
+
     /* Testing countIncludes function. */
     double arr[7] = { 10, 50, 40, 20, 50, 40, 30 };
     double test[3] = { 10, 20, 40 };
@@ -117,6 +119,7 @@ int main()
     double arr2[7] = { 5, 5, 3, 2, 5, 3, 2 };
     double test2[2] = { 5, 3 };
     assert(countIncludes(arr2, 7, test2, 2) == 5);
+    assert(countIncludes(arr2, 7, empty, 0) == 1);
     
     /* Testing order function. */
     order(arr, 7);
@@ -136,6 +139,8 @@ int main()
     double arr5[20] = { 9, 8, 2, 3, 4, 5, 9, 2, 1, 4, 3, 8, 6, 8, 4, 2, 5, 3, 1, 6 };
     order(arr5, 20);
     print(arr5, 20);
+    order(empty, 0);
+    print(empty, 0);
     
     cerr << "All tests passed." << endl;
 }
