@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 #include <iostream>
 #include <cassert>
 
@@ -9,6 +11,7 @@ bool somePredicate(double x)
     return x < 0;
 }
 
+>>>>>>> origin/master
 /* Return true if the somePredicate function returns true for at least one of the array elements, false otherwise. */
 bool anyTrue(const double a[], int n)
 {
@@ -91,7 +94,11 @@ int positionOfMin(const double a[], int n)
 // a2 as a not-necessarily-contiguous subsequence), return false.
 bool includes(const double a1[], int n1, const double a2[], int n2)
 {
+<<<<<<< HEAD
+    if (n2 < 0 || n1 < 0)
+=======
     if (n2 < 0)
+>>>>>>> origin/master
         return false;
     if (n2 == 0)
         return true;
@@ -107,6 +114,8 @@ bool includes(const double a1[], int n1, const double a2[], int n2)
         return includes(a1+1, n1-1, a2, n2);
     }
 }
+<<<<<<< HEAD
+=======
 
 
 int main()
@@ -173,3 +182,4 @@ int main()
     
     cerr << "All tests passed." << endl;
 }
+>>>>>>> origin/master

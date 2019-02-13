@@ -62,6 +62,8 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
 int main()
 {
@@ -84,3 +86,4 @@ int main()
         cout << "Out of luck!" << endl;
 }
 >>>>>>> 67026a26f72ef0d9cfb36b426e29019e52ff9b86
+>>>>>>> origin/master
