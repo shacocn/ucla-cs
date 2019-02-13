@@ -91,8 +91,13 @@ int positionOfMin(const double a[], int n)
 // a2 as a not-necessarily-contiguous subsequence), return false.
 bool includes(const double a1[], int n1, const double a2[], int n2)
 {
+<<<<<<< HEAD
     if (n2 < 0 || n1 < 0)
         return false; // impossible!
+=======
+    if (n2 < 0)
+        return false;
+>>>>>>> origin/master
     if (n2 == 0)
         return true;
     if (n1 == 0)

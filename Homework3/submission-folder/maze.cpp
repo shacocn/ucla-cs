@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+#include <iostream>
+#include <string>
+#include <stack>
+using namespace std;
+
+>>>>>>> origin/master
 class Coord
 {
 public:
