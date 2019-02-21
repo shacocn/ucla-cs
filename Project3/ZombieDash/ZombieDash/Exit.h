@@ -6,7 +6,7 @@
 class Exit : public StaticActor
 {
 public:
-    Exit(double startX, double startY);
+    Exit(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Exit();
 private:

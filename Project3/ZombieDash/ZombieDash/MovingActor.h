@@ -6,7 +6,7 @@
 class MovingActor : public Actor
 {
 public:
-    MovingActor(int imageID, int startX, int startY, Direction startDirection, int);
+    MovingActor(int imageID, int startX, int startY, Direction startDirection, int depth, bool alive, StudentWorld* world);
     virtual void doSomething();
     virtual ~MovingActor();
 private:

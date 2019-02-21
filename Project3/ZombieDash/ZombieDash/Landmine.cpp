@@ -1,6 +1,6 @@
 #include "Landmine.h"
 
-Landmine::Landmine(double startX, double startY) : Weapon(IID_LANDMINE, startX, startY, 0, 1)
+Landmine::Landmine(double startX, double startY, StudentWorld* world) : Weapon(IID_LANDMINE, startX, startY, 0, 1, true, world)
 {
     /*
      

@@ -1,6 +1,6 @@
 #include "Pit.h"
 
-Pit::Pit(double startX, double startY) : Weapon(IID_PIT, startX, startY, 0, 0)
+Pit::Pit(double startX, double startY, StudentWorld* world) : Weapon(IID_PIT, startX, startY, 0, 0, true, world)
 {
    /*
     

@@ -1,6 +1,6 @@
 #include "Weapon.h"
 
-Weapon::Weapon(int imageID, int startX, int startY, Direction startDirection, int depth) : StaticActor(imageID, startX, startY, startDirection, depth)
+Weapon::Weapon(int imageID, int startX, int startY, Direction startDirection, int depth, bool alive, StudentWorld* world) : StaticActor(imageID, startX, startY, startDirection, depth, alive, world)
 {
     
 }

@@ -1,6 +1,6 @@
 #include "Vomit.h"
 
-Vomit::Vomit(double startX, double startY) : Projectile(IID_VOMIT, startX, startY, 0, 0)
+Vomit::Vomit(double startX, double startY, StudentWorld* world) : Projectile(IID_VOMIT, startX, startY, 0, 0, true, world)
 {
     /*
      

@@ -6,7 +6,7 @@
 class GasCanGoodie : public Goodie
 {
 public:
-    GasCanGoodie(double startX, double startY);
+    GasCanGoodie(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~GasCanGoodie();
 private:

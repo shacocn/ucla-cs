@@ -6,7 +6,7 @@
 class Citizen : public Person
 {
 public:
-    Citizen(double startX, double startY);
+    Citizen(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Citizen();
 private:

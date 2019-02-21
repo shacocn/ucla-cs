@@ -6,7 +6,7 @@
 class Vomit : public Projectile
 {
 public:
-    Vomit(double startX, double startY);
+    Vomit(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Vomit();
 };

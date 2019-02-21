@@ -1,6 +1,6 @@
 #include "SmartZombie.h"
 
-SmartZombie::SmartZombie(double startX, double startY) : Zombie(IID_ZOMBIE, startX, startY, 0, 0)
+SmartZombie::SmartZombie(double startX, double startY, StudentWorld* world) : Zombie(IID_ZOMBIE, startX, startY, 0, 0, true, world)
 {
     /*
      

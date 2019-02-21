@@ -1,6 +1,6 @@
 #include "VaccineGoodie.h"
 
-VaccineGoodie::VaccineGoodie(double startX, double startY) : Goodie(IID_VACCINE_GOODIE, startX, startY, 0, 1)
+VaccineGoodie::VaccineGoodie(double startX, double startY, StudentWorld* world) : Goodie(IID_VACCINE_GOODIE, startX, startY, 0, 1, true, world)
 {
     /*
      

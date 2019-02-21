@@ -1,6 +1,6 @@
 #include "Flame.h"
 
-Flame::Flame(double startX, double startY) : Projectile(IID_FLAME, startX, startY, 0, 0)
+Flame::Flame(double startX, double startY, StudentWorld* world) : Projectile(IID_FLAME, startX, startY, 0, 0, true, world)
 {
     /*
      

@@ -1,6 +1,6 @@
 #include "GasCanGoodie.h"
 
-GasCanGoodie::GasCanGoodie(double startX, double startY) : Goodie(IID_GAS_CAN_GOODIE, startX, startY, 0, 1)
+GasCanGoodie::GasCanGoodie(double startX, double startY, StudentWorld* world) : Goodie(IID_GAS_CAN_GOODIE, startX, startY, 0, 1, true, world)
 {
     /*
      

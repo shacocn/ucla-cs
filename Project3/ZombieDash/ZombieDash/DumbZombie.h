@@ -6,7 +6,7 @@
 class DumbZombie : public Zombie
 {
 public:
-    DumbZombie(double startX, double startY);
+    DumbZombie(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~DumbZombie();
 };

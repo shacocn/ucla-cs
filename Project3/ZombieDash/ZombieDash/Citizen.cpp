@@ -1,6 +1,6 @@
 #include "Citizen.h"
 
-Citizen::Citizen(double startX, double startY) : Person(IID_CITIZEN, startX, startY, 0, 0)
+Citizen::Citizen(double startX, double startY, StudentWorld* world) : Person(IID_CITIZEN, startX, startY, 0, 0, true, world)
 {
     /*
      

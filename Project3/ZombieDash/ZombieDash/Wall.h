@@ -6,7 +6,7 @@
 class Wall : public StaticActor
 {
 public:
-    Wall(double startX, double startY);
+    Wall(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Wall();
 private:

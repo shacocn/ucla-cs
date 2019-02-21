@@ -1,9 +1,10 @@
 #include "Actor.h"
 #include "StudentWorld.h"
+#include <cmath>
 
 // Students:  Add code to this file, Actor.h, StudentWorld.h, and StudentWorld.cpp
 
-Actor::Actor(int imageID, double x, double y, Direction direction, int depth) : GraphObject(imageID, x, y, direction, depth)
+Actor::Actor(int imageID, double x, double y, Direction direction, int depth, bool alive, StudentWorld* world) : GraphObject(imageID, x, y, direction, depth), m_alive(alive), m_studentWorld(world)
 {
     /*
      Can only use these methods from GraphObject (very helpful though)
@@ -46,9 +47,28 @@ void Actor::doSomething()
             - press r to resume regular gameplay
 
      */
+    if (!isAlive())
+        return; // dead--do nothing!
 }
 
 Actor::~Actor()
 {
     
+}
+
+bool Actor::overlaps(const Actor* other) const
+{
+    return (distanceAwayFrom(other) <= 10);
+}
+
+double Actor::distanceAwayFrom(const Actor* other) const
+{
+    double thisCenterX = getX() + (SPRITE_WIDTH / 2);
+    double thisCenterY = getY() + (SPRITE_WIDTH / 2);
+    double otherCenterX = other->getX() + (SPRITE_WIDTH / 2);
+    double otherCenterY = other->getY() + (SPRITE_WIDTH / 2);
+    double deltaX = otherCenterX - thisCenterX;
+    double deltaY = otherCenterY - thisCenterY;
+    
+    return (sqrt(deltaX*deltaX + deltaY*deltaY));
 }

@@ -6,7 +6,7 @@
 class Landmine : public Weapon
 {
 public:
-    Landmine(double startX, double startY);
+    Landmine(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     ~Landmine();
 };
