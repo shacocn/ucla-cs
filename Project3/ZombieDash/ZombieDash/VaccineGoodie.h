@@ -6,7 +6,7 @@
 class VaccineGoodie : public Goodie
 {
 public:
-    VaccineGoodie(double startX, double startY);
+    VaccineGoodie(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~VaccineGoodie();
 };

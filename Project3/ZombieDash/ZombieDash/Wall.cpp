@@ -1,17 +1,7 @@
 #include "Wall.h"
 
-Wall::Wall(double startX, double startY) : StaticActor(IID_WALL, startX, startY, 0, 0)
+Wall::Wall(double startX, double startY, StudentWorld* world) : StaticActor(IID_WALL, startX, startY, 0, 0, true, world)
 {
-    /*
-     
-     upon creation:
-     - have image iD of IID_WALL
-     - start at location specified by data file
-     - starting location same as penelope
-     - direction same as penelope
-     - depth same as penelope
-     
-     */
 }
 
 void Wall::doSomething()

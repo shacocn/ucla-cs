@@ -5,7 +5,7 @@
 class Zombie : public MovingActor
 {
 public:
-    Zombie(int imageID, int startX, int startY, Direction startDirection, int depth);
+    Zombie(int imageID, int startX, int startY, Direction startDirection, int depth, bool alive, StudentWorld* world);
     virtual void doSomething();
     virtual ~Zombie();
 private:

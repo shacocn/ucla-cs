@@ -6,7 +6,7 @@
 class Flame : public Projectile
 {
 public:
-    Flame(double startX, double startY);
+    Flame(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Flame();
 private:

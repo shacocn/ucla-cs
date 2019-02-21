@@ -5,7 +5,7 @@
 class Weapon : public StaticActor
 {
 public:
-    Weapon(int imageID, int startX, int startY, Direction startDirection, int depth);
+    Weapon(int imageID, int startX, int startY, Direction startDirection, int depth, bool alive, StudentWorld* world);
     virtual void doSomething();
     ~Weapon();
 private:

@@ -1,6 +1,6 @@
 #include "Exit.h"
 
-Exit::Exit(double startX, double startY) : StaticActor(IID_EXIT, startX, startY, 0, 1)
+Exit::Exit(double startX, double startY, StudentWorld* world) : StaticActor(IID_EXIT, startX, startY, 0, 1, true, world)
 {
     /*
      

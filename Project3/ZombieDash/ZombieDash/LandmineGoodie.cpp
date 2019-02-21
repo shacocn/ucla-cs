@@ -1,6 +1,6 @@
 #include "LandmineGoodie.h"
 
-LandmineGoodie::LandmineGoodie(double startX, double startY) : Goodie(IID_LANDMINE_GOODIE, startX, startY, 0, 1)
+LandmineGoodie::LandmineGoodie(double startX, double startY, StudentWorld* world) : Goodie(IID_LANDMINE_GOODIE, startX, startY, 0, 1, true, world)
 {
     /*
      

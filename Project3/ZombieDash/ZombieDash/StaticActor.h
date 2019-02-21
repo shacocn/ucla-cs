@@ -5,7 +5,7 @@
 class StaticActor : public Actor
 {
 public:
-    StaticActor(int imageID, int startX, int startY, Direction startDirection, int depth);
+    StaticActor(int imageID, int startX, int startY, Direction startDirection, int depth, bool alive, StudentWorld* world);
     virtual void doSomething();
     virtual ~StaticActor();
 };

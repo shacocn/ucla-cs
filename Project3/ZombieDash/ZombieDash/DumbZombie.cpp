@@ -1,6 +1,6 @@
 #include "DumbZombie.h"
 
-DumbZombie::DumbZombie(double startX, double startY) : Zombie(IID_ZOMBIE, startX, startY, 0, 0)
+DumbZombie::DumbZombie(double startX, double startY, StudentWorld* world) : Zombie(IID_ZOMBIE, startX, startY, 0, 0, true, world)
 {
     /*
      

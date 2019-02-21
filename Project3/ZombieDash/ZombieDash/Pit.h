@@ -6,7 +6,7 @@
 class Pit : public Weapon
 {
 public:
-    Pit(double startX, double startY);
+    Pit(double startX, double startY, StudentWorld* world);
     virtual void doSomething();
     virtual ~Pit();
 private:
