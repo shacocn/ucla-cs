@@ -13,26 +13,6 @@
 		4B91F8C22033F3F8003AFA78 /* Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B91F8B62033F3F7003AFA78 /* Actor.cpp */; };
 		4B91F8C32033F3F8003AFA78 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B91F8B82033F3F7003AFA78 /* GameController.cpp */; };
 		4B91F8C62034176C003AFA78 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B91F8C52034176C003AFA78 /* OpenGL.framework */; };
-		D93E8D1B221E336E00DD392A /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D19221E336E00DD392A /* Person.cpp */; };
-		D93E8D1E221E365800DD392A /* Zombie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D1C221E365800DD392A /* Zombie.cpp */; };
-		D93E8D21221E36D900DD392A /* MovingActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D1F221E36D900DD392A /* MovingActor.cpp */; };
-		D93E8D24221E3A0700DD392A /* StaticActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D22221E3A0700DD392A /* StaticActor.cpp */; };
-		D93E8D27221E3A9900DD392A /* Goodie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D25221E3A9900DD392A /* Goodie.cpp */; };
-		D93E8D2A221E5C3300DD392A /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D28221E5C3300DD392A /* Weapon.cpp */; };
-		D93E8D2D221E5C9100DD392A /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D93E8D2B221E5C9100DD392A /* Projectile.cpp */; };
-		D99BAD8B221B9BCB0086C2E6 /* Penelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD89221B9BCB0086C2E6 /* Penelope.cpp */; };
-		D99BAD8E221B9C110086C2E6 /* DumbZombie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD8C221B9C110086C2E6 /* DumbZombie.cpp */; };
-		D99BAD91221B9C370086C2E6 /* SmartZombie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD8F221B9C370086C2E6 /* SmartZombie.cpp */; };
-		D99BAD94221B9C590086C2E6 /* Citizen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD92221B9C590086C2E6 /* Citizen.cpp */; };
-		D99BAD97221B9C780086C2E6 /* Landmine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD95221B9C780086C2E6 /* Landmine.cpp */; };
-		D99BAD9A221B9C920086C2E6 /* Pit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD98221B9C920086C2E6 /* Pit.cpp */; };
-		D99BAD9D221B9CB40086C2E6 /* Flame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD9B221B9CB40086C2E6 /* Flame.cpp */; };
-		D99BADA0221B9CD10086C2E6 /* Vomit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BAD9E221B9CD10086C2E6 /* Vomit.cpp */; };
-		D99BADA3221B9CE90086C2E6 /* VaccineGoodie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BADA1221B9CE90086C2E6 /* VaccineGoodie.cpp */; };
-		D99BADA6221B9CFF0086C2E6 /* GasCanGoodie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BADA4221B9CFF0086C2E6 /* GasCanGoodie.cpp */; };
-		D99BADA9221B9D2A0086C2E6 /* LandmineGoodie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BADA7221B9D2A0086C2E6 /* LandmineGoodie.cpp */; };
-		D99BADAC221B9D650086C2E6 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BADAA221B9D650086C2E6 /* Wall.cpp */; };
-		D99BADAF221B9D810086C2E6 /* Exit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D99BADAD221B9D810086C2E6 /* Exit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,46 +44,6 @@
 		4B91F8BE2033F3F8003AFA78 /* StudentWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentWorld.h; sourceTree = "<group>"; };
 		4B91F8C52034176C003AFA78 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		4B91F8C720341775003AFA78 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		D93E8D19221E336E00DD392A /* Person.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
-		D93E8D1A221E336E00DD392A /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		D93E8D1C221E365800DD392A /* Zombie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Zombie.cpp; sourceTree = "<group>"; };
-		D93E8D1D221E365800DD392A /* Zombie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
-		D93E8D1F221E36D900DD392A /* MovingActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingActor.cpp; sourceTree = "<group>"; };
-		D93E8D20221E36D900DD392A /* MovingActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingActor.h; sourceTree = "<group>"; };
-		D93E8D22221E3A0700DD392A /* StaticActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StaticActor.cpp; sourceTree = "<group>"; };
-		D93E8D23221E3A0700DD392A /* StaticActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticActor.h; sourceTree = "<group>"; };
-		D93E8D25221E3A9900DD392A /* Goodie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Goodie.cpp; sourceTree = "<group>"; };
-		D93E8D26221E3A9900DD392A /* Goodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Goodie.h; sourceTree = "<group>"; };
-		D93E8D28221E5C3300DD392A /* Weapon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Weapon.cpp; sourceTree = "<group>"; };
-		D93E8D29221E5C3300DD392A /* Weapon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
-		D93E8D2B221E5C9100DD392A /* Projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; };
-		D93E8D2C221E5C9100DD392A /* Projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
-		D99BAD89221B9BCB0086C2E6 /* Penelope.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Penelope.cpp; sourceTree = "<group>"; };
-		D99BAD8A221B9BCB0086C2E6 /* Penelope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Penelope.h; sourceTree = "<group>"; };
-		D99BAD8C221B9C110086C2E6 /* DumbZombie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DumbZombie.cpp; sourceTree = "<group>"; };
-		D99BAD8D221B9C110086C2E6 /* DumbZombie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DumbZombie.h; sourceTree = "<group>"; };
-		D99BAD8F221B9C370086C2E6 /* SmartZombie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SmartZombie.cpp; sourceTree = "<group>"; };
-		D99BAD90221B9C370086C2E6 /* SmartZombie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartZombie.h; sourceTree = "<group>"; };
-		D99BAD92221B9C590086C2E6 /* Citizen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Citizen.cpp; sourceTree = "<group>"; };
-		D99BAD93221B9C590086C2E6 /* Citizen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Citizen.h; sourceTree = "<group>"; };
-		D99BAD95221B9C780086C2E6 /* Landmine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Landmine.cpp; sourceTree = "<group>"; };
-		D99BAD96221B9C780086C2E6 /* Landmine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Landmine.h; sourceTree = "<group>"; };
-		D99BAD98221B9C920086C2E6 /* Pit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pit.cpp; sourceTree = "<group>"; };
-		D99BAD99221B9C920086C2E6 /* Pit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pit.h; sourceTree = "<group>"; };
-		D99BAD9B221B9CB40086C2E6 /* Flame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Flame.cpp; sourceTree = "<group>"; };
-		D99BAD9C221B9CB40086C2E6 /* Flame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flame.h; sourceTree = "<group>"; };
-		D99BAD9E221B9CD10086C2E6 /* Vomit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vomit.cpp; sourceTree = "<group>"; };
-		D99BAD9F221B9CD10086C2E6 /* Vomit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vomit.h; sourceTree = "<group>"; };
-		D99BADA1221B9CE90086C2E6 /* VaccineGoodie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VaccineGoodie.cpp; sourceTree = "<group>"; };
-		D99BADA2221B9CE90086C2E6 /* VaccineGoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VaccineGoodie.h; sourceTree = "<group>"; };
-		D99BADA4221B9CFF0086C2E6 /* GasCanGoodie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GasCanGoodie.cpp; sourceTree = "<group>"; };
-		D99BADA5221B9CFF0086C2E6 /* GasCanGoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GasCanGoodie.h; sourceTree = "<group>"; };
-		D99BADA7221B9D2A0086C2E6 /* LandmineGoodie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LandmineGoodie.cpp; sourceTree = "<group>"; };
-		D99BADA8221B9D2A0086C2E6 /* LandmineGoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LandmineGoodie.h; sourceTree = "<group>"; };
-		D99BADAA221B9D650086C2E6 /* Wall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
-		D99BADAB221B9D650086C2E6 /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
-		D99BADAD221B9D810086C2E6 /* Exit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Exit.cpp; sourceTree = "<group>"; };
-		D99BADAE221B9D810086C2E6 /* Exit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,46 +86,6 @@
 				4B91F8BE2033F3F8003AFA78 /* StudentWorld.h */,
 				4B91F8B62033F3F7003AFA78 /* Actor.cpp */,
 				4B91F8B02033F3F7003AFA78 /* Actor.h */,
-				D99BAD89221B9BCB0086C2E6 /* Penelope.cpp */,
-				D99BAD8A221B9BCB0086C2E6 /* Penelope.h */,
-				D99BAD92221B9C590086C2E6 /* Citizen.cpp */,
-				D99BAD93221B9C590086C2E6 /* Citizen.h */,
-				D99BAD8C221B9C110086C2E6 /* DumbZombie.cpp */,
-				D99BAD8D221B9C110086C2E6 /* DumbZombie.h */,
-				D99BAD8F221B9C370086C2E6 /* SmartZombie.cpp */,
-				D99BAD90221B9C370086C2E6 /* SmartZombie.h */,
-				D99BAD95221B9C780086C2E6 /* Landmine.cpp */,
-				D99BAD96221B9C780086C2E6 /* Landmine.h */,
-				D99BAD9B221B9CB40086C2E6 /* Flame.cpp */,
-				D99BAD9C221B9CB40086C2E6 /* Flame.h */,
-				D99BAD9E221B9CD10086C2E6 /* Vomit.cpp */,
-				D99BAD9F221B9CD10086C2E6 /* Vomit.h */,
-				D99BAD98221B9C920086C2E6 /* Pit.cpp */,
-				D99BAD99221B9C920086C2E6 /* Pit.h */,
-				D99BADA4221B9CFF0086C2E6 /* GasCanGoodie.cpp */,
-				D99BADA5221B9CFF0086C2E6 /* GasCanGoodie.h */,
-				D99BADA1221B9CE90086C2E6 /* VaccineGoodie.cpp */,
-				D99BADA2221B9CE90086C2E6 /* VaccineGoodie.h */,
-				D99BADA7221B9D2A0086C2E6 /* LandmineGoodie.cpp */,
-				D99BADA8221B9D2A0086C2E6 /* LandmineGoodie.h */,
-				D99BADAD221B9D810086C2E6 /* Exit.cpp */,
-				D99BADAE221B9D810086C2E6 /* Exit.h */,
-				D99BADAA221B9D650086C2E6 /* Wall.cpp */,
-				D99BADAB221B9D650086C2E6 /* Wall.h */,
-				D93E8D1F221E36D900DD392A /* MovingActor.cpp */,
-				D93E8D20221E36D900DD392A /* MovingActor.h */,
-				D93E8D19221E336E00DD392A /* Person.cpp */,
-				D93E8D1A221E336E00DD392A /* Person.h */,
-				D93E8D1C221E365800DD392A /* Zombie.cpp */,
-				D93E8D1D221E365800DD392A /* Zombie.h */,
-				D93E8D22221E3A0700DD392A /* StaticActor.cpp */,
-				D93E8D23221E3A0700DD392A /* StaticActor.h */,
-				D93E8D25221E3A9900DD392A /* Goodie.cpp */,
-				D93E8D26221E3A9900DD392A /* Goodie.h */,
-				D93E8D28221E5C3300DD392A /* Weapon.cpp */,
-				D93E8D29221E5C3300DD392A /* Weapon.h */,
-				D93E8D2B221E5C9100DD392A /* Projectile.cpp */,
-				D93E8D2C221E5C9100DD392A /* Projectile.h */,
 				4B91F8B52033F3F7003AFA78 /* GameConstants.h */,
 				4B91F8B82033F3F7003AFA78 /* GameController.cpp */,
 				4B91F8BA2033F3F7003AFA78 /* GameController.h */,
@@ -262,30 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B91F8C32033F3F8003AFA78 /* GameController.cpp in Sources */,
-				D99BADA6221B9CFF0086C2E6 /* GasCanGoodie.cpp in Sources */,
-				D99BADA9221B9D2A0086C2E6 /* LandmineGoodie.cpp in Sources */,
-				D99BAD8E221B9C110086C2E6 /* DumbZombie.cpp in Sources */,
 				4B91F8C02033F3F8003AFA78 /* StudentWorld.cpp in Sources */,
 				4B91F8BF2033F3F8003AFA78 /* GameWorld.cpp in Sources */,
-				D99BAD8B221B9BCB0086C2E6 /* Penelope.cpp in Sources */,
-				D99BAD91221B9C370086C2E6 /* SmartZombie.cpp in Sources */,
-				D99BADA0221B9CD10086C2E6 /* Vomit.cpp in Sources */,
-				D99BADAF221B9D810086C2E6 /* Exit.cpp in Sources */,
-				D93E8D1B221E336E00DD392A /* Person.cpp in Sources */,
-				D99BADA3221B9CE90086C2E6 /* VaccineGoodie.cpp in Sources */,
 				4B91F8C12033F3F8003AFA78 /* main.cpp in Sources */,
-				D93E8D2A221E5C3300DD392A /* Weapon.cpp in Sources */,
-				D99BAD9D221B9CB40086C2E6 /* Flame.cpp in Sources */,
-				D99BAD97221B9C780086C2E6 /* Landmine.cpp in Sources */,
-				D93E8D24221E3A0700DD392A /* StaticActor.cpp in Sources */,
-				D93E8D2D221E5C9100DD392A /* Projectile.cpp in Sources */,
-				D99BAD9A221B9C920086C2E6 /* Pit.cpp in Sources */,
-				D99BADAC221B9D650086C2E6 /* Wall.cpp in Sources */,
-				D93E8D21221E36D900DD392A /* MovingActor.cpp in Sources */,
-				D93E8D27221E3A9900DD392A /* Goodie.cpp in Sources */,
-				D93E8D1E221E365800DD392A /* Zombie.cpp in Sources */,
 				4B91F8C22033F3F8003AFA78 /* Actor.cpp in Sources */,
-				D99BAD94221B9C590086C2E6 /* Citizen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

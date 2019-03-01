@@ -1,0 +1,333 @@
+//////////////////////////
+// STUDENTWORLD CLASS
+//////////////////////////
+
+// Constructor
+StudentWorld(std::string assetPath);
+
+// Sets up the game
+virtual int init();
+
+// Make all actors in the game move
+virtual int move();
+
+// Erase all the actors in the game and deallocate their memory
+virtual void cleanUp();
+    
+// Destructor -- calls cleanUp()
+virtual ~StudentWorld();
+    
+// Returns number of ticks
+int ticks() const { return m_ticks; };
+
+// Returns true if two objects are overlapping
+bool overlaps(double x1, double y1, double x2, double y2) const;
+
+// Changes the level status    
+void changeLevelStatus(bool newStatus) { m_finishedLevel = newStatus; };
+
+// Adds an actor into the game    
+void addActor(Actor* a);
+
+// If an actor can be activated, have it activate to perform its affect.    
+void activateOnAppropriateActors(Actor* a);
+    
+// Remove a citizen from m_numCitizensLeft 
+void recordCitizenGone();
+    
+// Check if all citizens are gone and change m_finishedLevel if yes    
+void recordLevelFinishedIfAllCitizensGone();
+    
+// Return true if the object at location x,y  blocks movement
+bool isAgentMovementBlockedAt(double x, double y, double oldX, double oldY) const;
+    
+// Return true if the object at location x,y  blocks flame
+bool isFlameBlockedAt(double x, double y, double oldX, double oldY) const;
+    
+// Return true if the Actor at x,y triggers a Zombie to vomit
+bool isZombieVomitTriggerAt(double x, double y, double oldX, double oldY) const;
+    
+// Find the nearest Person; return false if not found. Set otherX and otherY to its coordinates and distance to the human nearest to (x, y)
+bool locateNearestVomitTrigger(double x, double y, double& otherX, double& otherY, double& distance);
+
+// Find the nearest zombie or Penelope or return false if not found. Set otherX and otherY to its location, set distance to distance from that Actor, and set isThreat to true if the Actor is a Zombie.
+bool locateNearestCitizenTrigger(double x, double y, double& otherX, double& otherY, double& distance, bool& isThreat) const;
+    
+// Find the nearest Zombie and return false if not found; set otherX and otherY to its location, set distance to distance from Zombie
+bool locateNearestCitizenThreat(double x, double y, double& otherX, double& otherY, double& distance) const;
+
+//////////////////////////
+// ACTOR CLASS
+//////////////////////////
+To test this class, I implemented a bunch of different derived types of Actor and checked to make sure that all of the virtual functions translated across properly. For example, I made sure that I could move across Exits but not across Walls (basic example, but the gist is the same for the rest of the virtual function checks).
+
+// Return true if the Actor is alive
+bool alive() const { return m_alive; };
+
+// Return a pointer to the StudentWorld    
+StudentWorld* world() const { return m_studentWorld; };
+    
+// Change the living status of the Actor.    
+void setDead() { m_alive = false; };
+    
+// Returns true if Actor blocks flame.  
+virtual bool blocksFlame() const { return false; }; // Exit/Wall
+
+// Returns true if Actor blocks movement    
+virtual bool blocksMovement() const { return false; }; // Wall/MovingActors
+    
+// Returns true if Actor can be infected
+virtual bool canBeInfected() const { return false; }; // Penny/Citizen
+    
+// Returns true if Actor can move around
+virtual bool canMoveAround() const { return false; }; // MovingActors
+    
+// Returns true if Actor can trigger Citizens to follow them or run away
+virtual bool canTriggerCitizens() const { return false; }; // Penny/Zombies
+    
+// Activate actors if they can be activated
+virtual void activateIfAppropriate(Actor* a) {};
+
+// Have Actor use the exit if it can do so. This class is virtual and has an empty body in the Actor class because unless an Actor can perform a special action after exiting, it will not do anything.    
+virtual void useExitIfAppropriate() {};
+    
+// Have Actor die if it can die. This class is virtual and has an empty body in the Actor class because unless an Actor can perform a special action after dying, it will not do anything.
+virtual void dieByFallOrBurnIfAppropriate() {};
+    
+// Have Actor vomit if it can vomit. This class is virtual and has an empty body in the Actor class because unless an Actor can perform a special action after being vomited on, it will not do anything.
+virtual void beVomitedOnIfAppropriate() {};
+    
+// Have Actor pick up a Goodie. This class is virtual and has an empty body in the Actor class because unless an Actor can perform a special action after picking up a Goodie, it will not do anything.
+virtual void pickUpGoodieIfAppropriate(Goodie* g) {};
+
+//////////////////////////
+// MOVINGACTOR CLASS
+//////////////////////////
+I checked this class by making sure that the two boolean checks worked effectively. Moving Actors include Penelope, Citizens, and Zombies. This means that anything that uses the methods blocksMovement() or canMoveAround() should be able to affect all of these objects.
+
+// Moving actors can move around, so this returns true.
+virtual bool canMoveAround() const { return true; };
+
+// Since MovingActors cannot move onto other MovingActors, this returns true.
+virtual bool blocksMovement() const { return true; };
+
+//////////////////////////
+// PERSON CLASS
+//////////////////////////
+I checked this class by adding to the infection count and decrementing it and checking to make sure that it changed on the status bar (since the status bar correctly displays the infection count on to the screen. 
+
+// Sets the infection count to 0
+void clearInfection() { m_infectionCount = 0; };
+    
+// Returns the infection count
+int infectionCount() const { return m_infectionCount; };
+    
+// Increase the infection count.
+void increaseInfection() { m_infectionCount++; };
+    
+// Any Person who gets vomited on will have their infection count altered. 
+virtual void beVomitedOnIfAppropriate();
+    
+// Returns true because People can always be infected.
+virtual bool canBeInfected() const { return true; };
+
+//////////////////////////
+// PENELOPE CLASS
+//////////////////////////
+Penelope was an important one to test. I started with simple movement and then slowly implemented each of her functionalities. When I wanted to test a functionality, I created a layout with just that object and Penelope. For example, I had her pick up one goodie by placing just her and a goodie on the screen and then made sure that the status bar reflected the changes.
+
+For Penelope's interactions with other Actors, I made sure to test with more than one of the other Actors because sometimes the movement with regards to multiple actors is different than with just one actor.
+
+// Have Penelope exit the game and move onto the next level if all the citizens are gone.
+virtual void useExitIfAppropriate();
+    
+// Kill Penelope and end the game
+virtual void dieByFallOrBurnIfAppropriate();
+    
+// Returns true because Penelope can always trigger Citizens to move.   
+virtual bool canTriggerCitizens() const { return true; };
+    
+// Have Penelope pick up a goodie when she comes across one.
+virtual void pickUpGoodieIfAppropriate(Goodie* g);
+    
+// Change and return information for the goodies that Penelope holds
+int numFlameCharges() const { return m_flameCharges; };
+int numVaccines() const { return m_vaccines; };
+int numLandminesHeld() const { return m_landmines; };
+void increaseFlameCharges() { m_flameCharges += 5; };
+void increaseVaccines() { m_vaccines++; };
+void increaseLandmines() { m_landmines += 2; };
+
+//////////////////////////
+// CITIZEN CLASS
+//////////////////////////
+The Citizen class was one of the last I tested. I first tested it with an Exit to make sure that they would successfully exit and change the proper settings in the StudentWorld class. Then I implemented Penelope's interactions with Citizen by placing just the two of them in one layout text file. After that, I tested Citizen with one Zombie, two Zombies, three Zombies, and then used the game file (mainly level 03).
+
+// Have the Citizen use the exit
+virtual void useExitIfAppropriate();
+    
+// Kill a Citizen and record its death in StudentWorld
+virtual void dieByFallOrBurnIfAppropriate();
+    
+// Change infection status of Citizen if it is infected
+virtual void beVomitedOnIfAppropriate();
+    
+// Returns true because Citizens are frozen on even ticks. This class is virtual because not all Actors are frozen on an even tick.
+virtual bool frozenOnEvenTick() const { return true; };
+
+//////////////////////////
+// ZOMBIE CLASS
+//////////////////////////
+
+I placed Zombies with Penelope individually and tested its movement and vomit. Vomit works very well with Penelope but with Citizen, there's a little bit of trouble (detailed in the functionality error section) but I used the same method of testing. I also had to test that the movement plan components changed properly, so I used cerr to print out values.
+
+// Return the movement plan.
+int movePlanDistance() const { return m_movePlanDistance; };
+    
+// Change the movement plan.
+void changeMovePlan(int change) { m_movePlanDistance = change; };
+    
+// Try and vomit. Both Zombies use this class
+bool tryToVomit() const;
+    
+// Returns true because Zombies are frozen on an even tick. This class is virtual because not all actors are frozen on an even tick! 
+virtual bool frozenOnEvenTick() const { return true; };
+    
+// Returns true because Zombies can trigger citizens.
+virtual bool canTriggerCitizens() const { return true; };
+
+//////////////////////////
+// SMARTZOMBIE CLASS
+//////////////////////////
+
+This class was mostly tested through DumbZombie and SmartZombie
+
+// Kill a Smart Zombie
+virtual void dieByFallOrBurnIfAppropriate();
+
+//////////////////////////
+// DUMBZOMBIE CLASS
+//////////////////////////
+
+I put a DumbZombie with Penelope and then with Citizens to test that the vomit functionality worked properly. I also tried to test the random drop by placing multiple DumbZombies on the screen and then calling their Kill function after a certain level of ticks.
+
+// Kill a DumbZombie
+virtual void dieByFallOrBurnIfAppropriate();
+
+// Private
+void dropGoodie() const;
+
+//////////////////////////
+// LANDMINE CLASS
+//////////////////////////
+
+I tested a landmine by placing it on the screen and then running Penelope over it after thirty ticks. I also made sure that I watched the status bar to make sure that it truly as a change of 30 ticks before the landmine was fully active. I then placed one near Zombies and Citizens to make sure that if they ran over them, they would explode as well.
+
+// Returns true if the landmine is active
+bool isActive() const { return m_active; };
+    
+// Returns the status of the landmine
+void setActiveState(bool newStatus) { m_active = newStatus; };
+
+// Kill the landmine if flame hits it    
+virtual void dieByFallOrBurnIfApproprate();
+    
+// Active the landmine
+virtual void activateIfAppropriate(Actor* a);
+
+//////////////////////////
+// PROJECTILE CLASS
+//////////////////////////
+
+I mainly used the Flame and Vomit classes to test the Projectile class.
+
+// Returns true if the projectile should be dead. Projectiles do not last more than two ticks.
+bool shouldBeDead() const { return m_aliveTicks == 2; };
+
+// Increment the number of ticks
+void incrementAliveTicks() { m_aliveTicks++; };
+
+//////////////////////////
+// FLAME CLASS
+//////////////////////////
+
+I mainly tested the flame class by running Penelope around the game and shooting things to make sure that flame only overlapped things that it should overlap. For example, when I shoot flame at a Wall, no flame should be created (and this is what happened) whereas shooting at Goodie should destroy it.
+
+// Activate the flame
+virtual void activateIfAppropriate(Actor *a);
+
+//////////////////////////
+// GOODIE CLASS
+//////////////////////////
+
+I tested these using the specific Goodie derived types.
+
+// Activate goodie 
+virtual void activateIfAppropriate(Actor* a);
+    
+// Remove goodie from the game
+virtual void dieByFallOrBurnIfAppropriate();
+    
+// Have penelope pick up the goodie. This class is pure virtual because each Goodie class has a different way of being picked up.
+virtual void pickUp(Penelope *p) = 0;
+
+//////////////////////////
+// GAS CAN GOODIE CLASS
+//////////////////////////
+
+I printed out the number of charges from Penelope's class to make sure that the value of charges actually changed. I also checked the status bar to make sure that the value was changing.
+
+// Have penelope pick up a gas can goodie and add to her count
+virtual void pickUp(Penelope *p);
+
+//////////////////////////
+// VACCINE GOODIE CLASS
+//////////////////////////
+
+I printed out the number of vaccines from Penelope's class to make sure that the value of charges actually changed. I also checked the status bar to see that the infection level fell to 0 if I pressed enter and that this did not happen if no vaccines were in Penelope's posession.
+
+// Have penelope pick up the vaccine and add to her count
+virtual void pickUp(Penelope *p);
+
+//////////////////////////
+// LANDMINE GOODIE CLASS
+//////////////////////////
+
+I checked the status bar to make sure that the value changed whenever I pressed the tab button.
+
+// Have penelope pick up a landmine goodie and add to her count
+virtual void pickUp(Penelope *p);
+
+//////////////////////////
+// EXIT CLASS
+//////////////////////////
+
+I placed an exit with every MovingActor to make sure that when they ran over it, it would either take effect if it was a Person or not if it was a Zombie. 
+
+// Returns true because exit blocks flames
+virtual bool blocksFlame() const { return true; };
+
+// Have exit perform an action on something that overlaps it if applicable
+virtual void activateIfAppropriate(Actor* a);
+
+//////////////////////////
+// WALL CLASS
+//////////////////////////
+
+I tested this one by placing MovingActors around it and seeing how they interacted with the Wall. I also used Penelope to run around the game and make sure that Penelope could not pass through any of the walls.
+
+// Returns true because wall blocks flames
+virtual bool blocksFlame() const { return true; };
+    
+// Returns true because walls always block movement 
+virtual bool blocksMovement() const { return true; };
+
+//////////////////////////
+// FAILED TO IMPLEMENT
+//////////////////////////
+
+Citizens move properly (following Penelope) but they flicker when they move; the transition from pixel to pixel is not completely smooth. 
+
+When vomit lands on citizens, it does not disappear. My suspicion is that it might be the movement of the Zombie that's causing this to happen (in other words, the Zombie does not turn away after vomiting, it keeps finding the citizen nearby and keeps vomiting in the same location). 
+
+When the DumbZombie flings out a vomit, it checks that there is no Actor that might block movement but it does not check for any other object that does not block movement. 
