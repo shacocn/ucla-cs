@@ -10,5 +10,33 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "GenomeMatcherImpl::findGenomesWithThisDNA(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;, int, bool, std::__1::vector&lt;DNAMatch, std::__1::allocator&lt;DNAMatch&gt; &gt;&amp;) const:GenomeMatcher.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "genome.name()">
+            </PersistentString>
+            <PersistentString
+               value = "startOfGenome">
+            </PersistentString>
+            <PersistentString
+               value = "genomePos">
+            </PersistentString>
+            <PersistentString
+               value = "potentialMatches.size()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GenomeMatcherImpl::addGenome(Genome const&amp;):GenomeMatcher.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "p.first">
+            </PersistentString>
+            <PersistentString
+               value = "p.second">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

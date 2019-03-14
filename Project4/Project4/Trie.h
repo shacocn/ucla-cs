@@ -31,7 +31,7 @@ private:
     /* Private data members. */
     TrieNode* root; // points to empty first node of Trie
     
-    /* Recursively frees memory in nodes of the Trie. Does not delete the root pointer. */
+    /* Recursively frees memory in nodes of the Trie. */
     void freeTrieMemory(TrieNode* node);
     
     /* Recursively insert values into the Trie. */
@@ -54,13 +54,19 @@ template<typename ValueType>
 Trie<ValueType>::~Trie()
 {
     freeTrieMemory(root);
-    delete root;
 }
 
 template <typename ValueType>
 void Trie<ValueType>::freeTrieMemory(TrieNode* node)
 {
-   // recursively free the tree's memory
+   if (node != nullptr)
+   {
+       for (int i = 0; i < 26; i++)
+       {
+           freeTrieMemory(node->children[i]);
+       }
+       delete node;
+   }
 }
 
 /* Frees memory associated with current Trie and allocates new empty Trie with a single root node. */

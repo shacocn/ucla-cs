@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D9B7FE7D2230520C00F315E1 /* Genome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9B7FE7B2230520C00F315E1 /* Genome.cpp */; };
 		D9B7FE7E2230520C00F315E1 /* GenomeMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9B7FE7C2230520C00F315E1 /* GenomeMatcher.cpp */; };
+		D9BE00F92239D164006B46F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BE00F82239D164006B46F1 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		D9B7FE7A2230520C00F315E1 /* provided.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = provided.h; sourceTree = "<group>"; };
 		D9B7FE7B2230520C00F315E1 /* Genome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Genome.cpp; sourceTree = "<group>"; };
 		D9B7FE7C2230520C00F315E1 /* GenomeMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenomeMatcher.cpp; sourceTree = "<group>"; };
+		D9BE00F82239D164006B46F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				D9B7FE7C2230520C00F315E1 /* GenomeMatcher.cpp */,
 				D9B7FE7A2230520C00F315E1 /* provided.h */,
 				D9B7FE792230520C00F315E1 /* Trie.h */,
+				D9BE00F82239D164006B46F1 /* main.cpp */,
 			);
 			path = Project4;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			files = (
 				D9B7FE7D2230520C00F315E1 /* Genome.cpp in Sources */,
 				D9B7FE7E2230520C00F315E1 /* GenomeMatcher.cpp in Sources */,
+				D9BE00F92239D164006B46F1 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

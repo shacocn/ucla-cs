@@ -25,43 +25,55 @@ GenomeImpl::GenomeImpl(const string& nm, const string& sequence) : m_name(nm), m
 
 bool GenomeImpl::load(istream& genomeSource, vector<Genome>& genomes)
 {
-    string name, line;
-    getline(genomeSource, line);
-    if (line.at(0) != '>')
-        return false; // first character must indicate name
-    
-    /* Insert the rest of the line into the name. */
-    name = line.substr(1);
-    if (name == "")
-        return false; // must have something after >
-    
-    /* Now, we know everything else after this line must be part of the DNA sequence. */
-    string dna = "";
+    string line = "", name = "", sequence = "";
     while (getline(genomeSource, line))
     {
         if (line == "")
-            return false; // no empty lines!
+            return false; // no empty lines allowed
         
-        for (int i = 0; i < line.length(); i++)
+        /* If both name and sequence are empty, this is the start of a new genome. */
+        if (line.at(0) == '>')
         {
-            char ch = line.at(i);
-            if (!isalpha(ch))
-                return false; // must be a letter!
-        
-            /* If it is a letter, convert to upper case and make sure that it is either A, C, G, T, N. */
-            if (islower(ch))
-                toupper(ch);
-            if (ch != 'A' && ch != 'C' && ch != 'G' && ch != 'T' && ch != 'N')
-                return false; // not a base!
+            /* If name is empty, that means nothing was stored in name previously and this is an empty line. */
+            if (!name.empty() && sequence.empty())
+                return false;
             
-            /* If it's a proper base, add it to the DNA sequence. */
-            dna += ch;
+            /* If the both name and sequence contain something, this is a new genome. */
+            if (!name.empty() && !sequence.empty())
+            {
+                Genome newGenome(name, sequence);
+                genomes.push_back(newGenome);
+                name = "";
+                sequence = "";
+            }
+            
+            /* Otherwise, add the rest of the string in to the name. */
+            name = line.substr(1);
+        }
+        
+        /* Otherwise, this line should belong to the DNA sequence. */
+        else
+        {
+            for (int i = 0; i < line.length(); i++)
+            {
+                char ch = line.at(i);
+                if (!isalpha(ch))
+                    return false; // must be a letter!
+                
+                /* If it is a letter, convert to upper case and make sure that it is either A, C, G, T, N. */
+                if (islower(ch))
+                    toupper(ch);
+                if (ch != 'A' && ch != 'C' && ch != 'G' && ch != 'T' && ch != 'N')
+                    return false; // not a base!
+                
+                sequence += ch;
+            }
         }
     }
-    
-    /* If all tests are passed and the file is properly formatted, create a new Genome object with the name and DNA sequence. */
-    Genome newGenome(name, dna);
+    /* Push the last genome in. */
+    Genome newGenome(name, sequence);
     genomes.push_back(newGenome);
+    
     return true;
 }
 
@@ -130,99 +142,4 @@ string Genome::name() const
 bool Genome::extract(int position, int length, string& fragment) const
 {
     return m_impl->extract(position, length, fragment);
-}
-
-int main()
-{
-    cout << "===============================" << endl;
-    
-    Trie<string> newTrie;
-    newTrie.insert("ACTG", "genome1");
-    newTrie.insert("TCGACT", "genome2");
-    newTrie.insert("TCTCG", "genome3");
-    vector<string> values = newTrie.find("ACTG", false);
-    cout << "size: " << values.size() << endl;
-    for (int j = 0; j < values.size(); j++)
-        cout << values[j] << endl;
-    
-    Genome g("oryx", "GCTCGGNACACATCCGCCGCGGACGGGACGGGATTCGGGCTGTCGATTGTCTCACAGATCGTCGACGTACATGACTGGGA");
-    std::string f1, f2;
-    std::string f3 = "GAC";
-    bool result1 = g.extract(0, 5, f1);
-    bool result2 = g.extract(74, 6, f2);
-    bool result3 = g.extract(74, 7, f3);
-    assert(result1 && f1 == "GCTCG");
-    assert(result2 && f2 == "CTGGGA");
-    assert(!result3 && f3 == "GAC");
-    
-    cout << "===============================" << endl;
-    
-    Trie<int>* root = new Trie<int>;
-    root->insert("HIT", 1);
-    root->insert("HIT", 2);
-    root->insert("HIP", 10);
-    root->insert("HIP", 20);
-    root->insert("HAT", 7);
-    root->insert("HAT", 8);
-    root->insert("HAT", 9);
-    root->insert("A", 14);
-    root->insert("TO", 22);
-    root->insert("TO", 23);
-    root->insert("TAP", 19);
-    root->insert("TAP", 6);
-    root->insert("TAP", 32);
-    root->insert("HI", 9);
-    root->insert("HI", 17);
-
-    vector<int> result = root->find("TO", true);
-    if (result.size() == 0)
-        cerr << "not found!" << endl;
-    else
-    {
-        cerr << "result size: " << result.size() << endl;
-        for (int i = 0; i < result.size(); i++)
-            std::cout << result[i] << std::endl;
-    }
-    
-    cout << "===============================" << endl;
-    
-    string name = "ZIANICUS CHENICUS";
-    string sequence = "ZIANC";
-    GenomeImpl obj(name, sequence);
-    
-    string filename = "/Users/zianchen/Dev/cs32-w18/Project4/data/Ferroplasma_acidarmanus.txt";
-    ifstream strm(filename);
-    if (!strm)
-    {
-        cout << "Cannot open " << filename << endl;
-    }
-    else
-    {
-        vector<Genome> vg;
-        bool success = Genome::load(strm, vg);
-        
-        if (success)
-        {
-            cout << "Loaded " << vg.size() << " genomes successfully: " << endl;
-            for (int k = 0; k != vg.size(); k++)
-                cout << vg[k].name() << endl;
-        }
-        else
-            cout << "Error loading genome data" << endl;
-    }
-    
-    cout << "===============================" << endl;
-    
-    GenomeMatcher gMatcher(3);
-    Genome genome1 ("Genome 1", "ACTG");
-    Genome genome2 ("Genome 2", "TCGACT");
-    Genome genome3 ("Genome 3", "TCTCG");
-    gMatcher.addGenome(genome1);
-    gMatcher.addGenome(genome2);
-    gMatcher.addGenome(genome3);
-    
-    cout << "===============================" << endl;
-    
-    vector<DNAMatch> matches;
-    gMatcher.findGenomesWithThisDNA("ACTG", 4, false, matches);
 }
