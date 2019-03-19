@@ -317,14 +317,16 @@ int main()
     }
 
     GenomeMatcher gm(4);
-    Genome newGenome("sasquatch", "GGGGTTTTAAAACCCCACGTACGTACGTNANANANA");
+    Genome newGenome("test", "GATTACA");
     gm.addGenome(newGenome);
-    string find = "AAATCCCTGGGGTTTTNANA";
+    string find = "ACCA";
     Genome findGenome("find", find);
     vector<GenomeMatch> results;
-    gm.findRelatedGenomes(findGenome, 4, false, 20, results);
-
-    assert(results.size() == 1);
-
-    cout << "all test passed" << endl;
+    if (!gm.findRelatedGenomes(findGenome, findGenome.length(), false, 20, results))
+        cout << "error" << endl;
+    else {
+        cout << "worked" << endl;
+        for (int i = 0; i < results.size(); i++)
+            cout << results[i].percentMatch << endl;
+    }
 }
