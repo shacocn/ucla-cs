@@ -62,9 +62,7 @@ void Trie<ValueType>::freeTrieMemory(TrieNode* node)
    if (node != nullptr)
    {
        for (int i = 0; i < 26; i++)
-       {
            freeTrieMemory(node->children[i]);
-       }
        delete node;
    }
 }
