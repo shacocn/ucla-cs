@@ -1,0 +1,18 @@
+int makeProper(char word1[][MAX_WORD_LENGTH+1],
+               char word2[][MAX_WORD_LENGTH+1],
+               int separation[],
+               int nPatterns)
+
+transform every upper case letter to lower case
+remove from collection if 
+	word contains no characters
+	word contains character that is not a letter
+	separation is negative
+	same w1 and w2 values
+		remove the one with lesser separation value
+return number of patterns (treat negative nPatterns as 0)
+
+for loop going from 0 to nPatterns
+	check if there are character issues
+	check for same w1 or w2 values
+		convert to lower case

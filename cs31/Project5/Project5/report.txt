@@ -1,0 +1,83 @@
+---NOTABLE OBSTACLES---
+1. Finding efficient ways to execute both functions. I tried to keep the looping through the arrays to a minimum, but it was difficult as there were so many variables to keep track of each time.
+
+2. In the rate function, I accidentally had switched the two for loops so that I was looping through the word array rather than checking each pattern first. This made for unnecessary checks that contributed to more matches than anticipated.
+
+3. I didn't swap the separation values (I only deleted the values from the two word arrays) and this was a problem because if there was a negative value, the error value got matched to the wrong word in the array.
+
+---PSEUDOCODE---
+MAKEPROPER()
+// first make everything lower case (makes it easier later)
+// starting from values at the end, remove values at the end
+// once the error cases are gone, find duplicate terms and remove
+	// to find duplicates, compare each element to all that come before it
+	// if a match is found, remove the element with smaller separation value
+// return the number of patterns (0 if nPatterns < 0)
+
+RATE()
+// trace through each character
+	//start a new word if there is a blank space or it's the end of the document
+        // skip characters that are not alpha numeric and if it is upper case (and an alpha of course) then convert it to lowercase before adding to the current word
+            // set a temporary char value that will store the char being processed; add that char to the temporary word rather than the char from the actual document
+    	// upon finding a space, increment without doing anything (this also accounts for the possibility that there are multiple spaces--just ignore any that you see) but also pause
+        // within this pause, analyze the word and check to see if it matches something in the array
+        // set a boolean control to see if previous word had been found before
+        	// if a word has not been found before, set the boolean value to true and save that word in a temporary c-string variable
+        // store the "word to be found" in another c-string variable
+        // for the next nSeparation number of words, check to see if the "word to be found" is actually found
+            // if it is found, then add one to the number of patterns and make sure to set the boolean value to false
+    // continue through this process unitl end of the document is reached
+
+---TEST CASES---
+/* -------------makeProper() TEST CASES---------------- */
+    // regular case
+    const int RULES = 4;
+    char one[RULES][MAX_WORD_LENGTH+1] = { "mAd", "dERAngED", "neFAriouS", "0890R" };
+    char two[RULES][MAX_WORD_LENGTH+1] = { "scientist", "craZy", "plot", "mad" };
+    int sep1[RULES] = { 1, 3, 0, 12 };
+    assert(makeProper(one, two, sep1, RULES) == 3); // && strcmp(one[0], "mad") == 0 && strcmp(one[1], "deranged") == 0 && strcmp(one[2], "nefarious") == 0 && strcmp(two[1], "crazy") == 0);
+    
+    // empty string
+    char first[RULES][MAX_WORD_LENGTH+1] = { "", "empty", "neFAriouS", "0890R" };
+    char second[RULES][MAX_WORD_LENGTH+1] = { "scientist", "craZy", "plot", "mad" };
+    assert(makeProper(first, second, sep1, RULES) == 2); // && strcmp(one[0], "empty") == 0 && strcmp(one[1], "nefarious") == 0 && strcmp(two[0], "crazy") == 0);
+    
+    // non-alpha characters as words
+    char uno[RULES][MAX_WORD_LENGTH+1] = { "0h" , "thats" , "bab3" , "cra2y" };
+    char dos[RULES][MAX_WORD_LENGTH+1] = { "on" , "cool" , "babe", "crazy" };
+    assert(makeProper(uno, dos, sep1, RULES) == 1); // && strcmp(uno[0], "thats") == 0 && strcmp(two[0], "cool") == 0);
+    
+    // negative separation
+    int sep2[RULES] = { 1, -2, 0, 12 };
+    assert(makeProper(one, two, sep2, RULES) == 2); // && strcmp(one[0], "mad") == 0);
+    
+    // same pattern
+    char bonjour[RULES][MAX_WORD_LENGTH+1] = { "oh", "very", "amazing", "FRIEND" };
+    char aurevoir[RULES][MAX_WORD_LENGTH+1] = { "me", "amazing", "very", "classY" };
+    assert(makeProper(bonjour, aurevoir, sep1, RULES) == 3); // && strcmp(bonjour[0], "oh") == 0 && strcmp(bonjour[1], "very") == 0);
+    
+    /* -------------rate() TEST CASES---------------- */
+    const int TEST1_NRULES = 4;
+    char test1w1[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
+        "mad",       "deranged", "nefarious", "have"
+    };
+    char test1w2[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
+        "scientist", "robot",    "plot",      "mad"
+    };
+    int test1dist[TEST1_NRULES] = {
+        1,           3,          0,           12
+    };
+    assert(rate("The mad UCLA scientist unleashed a deranged evil giant robot.",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 2);
+    assert(rate("The mad UCLA scientist unleashed    a deranged robot.",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 2);
+    assert(rate("**** 2018 ****",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+    assert(rate("  That plot: NEFARIOUS!",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+    assert(rate("deranged deranged robot deranged robot robot",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+    assert(rate("That scientist said two mad scientists suffer from deranged-robot fever.",
+                test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+
+            
